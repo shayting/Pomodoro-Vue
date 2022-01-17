@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+// 變數
+$primary =#304030
+$textColor =#E8E8E8
+$dataGreen =#6C9460
+$dataOrange =#F08448
+
+.xyCenter
+  display flex
+  justify-content center
+  align-items center
+html,body
+  margin 0
+  padding 0
+  height 100vh
+  box-sizing: border-box
+  background $primary
+  font-family 'Fjalla One', 'Noto Sans TC', sans-serif
+#app
+  padding-left 60px
+  position relative
+  overflow hidden
+  #main,#mainBreak
+    padding 80px 2rem
+  #background
+    width 100%
+    height 100%
+    position absolute
+    top 0
+    left 0
+    background url('~@/assets/images/tomato--orange.svg') no-repeat bottom center/100%
+  #backgroundBreak
+    width 100%
+    height 100%
+    position absolute
+    top 0
+    left 0
+    background url('~@/assets/images/tomato--green.svg') no-repeat bottom center/100%
+    padding 80px
+
+// sidebar --------------------
+#sidebar
+  position absolute
+  top 0 
+  left 0
+.menuBTN
+  z-index 9999 !important
+  width 80px
+  background $textColor
+  position relative
+  button 
+    background transparent !important
+    border-radius 0 !important
+    height 80px
+    &:hover
+      background white !important
+
+#sidebar-list,#sidebar-analysis 
+  background-color: $primary !important 
+  color $textColor !important
+  width 100vw
+  padding 48px 2% 48px calc(2% + 80px)
+  h2 
+    font-size 40px
+// sidebar-list
+.list-header
+  margin-bottom 40px
+.todoState span
+  font-size 16px
+  opacity 0.5
+  &:hover
+    opacity 1
+.todoState span.isActive
+  opacity 1 
+.addItem
+    height 56px
+    background #fff
+  input
+    outline none
+  #addBtn
+    background $dataOrange
+    border-radius 71px
+    height 40px
+    width 48px
+    border 0
+    color $textColor
+
+// list item
+.listItem
+  font-size 20px
+  padding 15px 0
+  .todoCheckBox
+    height 24px
+    width 24px
+    border 2px solid white
+  .todoText
+    margin-left 16px
+  .edit 
+    margin 0 15px
+  #editInput
+    border none
+    width 22vw
+    border-radius calc(1px + 100vw)
+    padding-left 15px 
+  #updateEdit
+    cursor pointer
+    transition 0.3s
+    background $dataOrange
+    border-radius calc(1px + 100vw)
+    width 40px
+    height 26px
+    &:hover
+      background $dataGreen
+  #endEdit
+    cursor pointer
+    transition 0.3s
+    background $dataOrange
+    border-radius calc(1px + 100vw)
+    width 40px
+    height 26px
+    &:hover
+      background $dataGreen
+
+
+// sidebar-analysis
+#sidebar-analysis 
+  h2
+    margin-bottom 40px
+  h5 
+    font-size 16px
+  h6
+    font-weight 300
+    display inline-block
+    margin-right 24px
+  span 
+    color $textColor
+    opacity 50%
+.dayAnalysis,.weekAnalysis
+  width 48%
+.analysisBox
+  height 165px
+  padding 10px
+  background transparent
+  border 1px solid rgba(255,255,255,0.2)
+  .analysis-todo-count
+    border-right 1px solid rgba(255,255,255,0.2)
+  .todoCount
+    font-size 80px
+    color $dataGreen
+    line-height 1.4
+  .todoFinished
+    font-size 80px
+    color $dataOrange
+    line-height 1.4
+// countdown --------------------------------------------------------
+#countDown
+  .countdown-time
+    font-size 155px
+  .countdown-btns
+    #alarm,#stop,#muted
+      width 48px
+      height 48px
+      margin 0 8px
+      border: 2px solid $textColor
+      background transparent
+    #muted
+      background $textColor
+      img
+        filter invert(53%) sepia(31%) saturate(439%) hue-rotate(61deg) brightness(95%) contrast(89%)
+        transform scale(1.2)
+    #alarm:hover,#stop:hover
+      background $textColor
+      img
+        filter invert(53%) sepia(31%) saturate(439%) hue-rotate(61deg) brightness(95%) contrast(89%) 
+    #play, #pause,#breakPlay,#breakPause
+      width 64px
+      height 64px
+      margin 0 8px
+      background $textColor
+// todoList ---------------------------------------
+#todoList li:first-child 
+  font-size 32px
+  font-weight 500
+  padding-left 0px
+  .todoCheckBox
+    width 40px
+    height 40px
+#todoList
+  padding 0 40px
+  .listItem
+    color $textColor
+    padding-left 10px
+// break theme
+#breakText
+  color white
+  h2
+    font-size 80px
+    margin-top 10px
+  p 
+    font-size 25px
+// barchart-----------------------
+#chart 
+  width 300px!important
+  margin 40px auto
+// when sidebar is open
+.push
+  padding-left 47vw
+  transition 0.3s ease-in-out
+.hide
+  display none
+.moveRight
+  transition 0.3s ease-in-out
+  left 47%!important
+// media query
+@media (min-width:992px) 
+  #sidebar-list,#sidebar-analysis
+    width 50vw
+  #app #background
+    background url('~@/assets/images/tomato--orange.svg') no-repeat bottom center/70% 
+  #app #backgroundBreak
+    background url('~@/assets/images/tomato--green.svg') no-repeat bottom center/70% 
+@media (min-width:1400px) 
+  #countDown .countdown-time
+    font-size 200px 
